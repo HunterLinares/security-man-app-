@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Men App</title>
+
+  <!-- Manifest para PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Íconos -->
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Color de la barra del navegador en móviles -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- Estilos opcionales -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenido a Security Men App</h1>
+  <p>Tu aplicación de seguridad personal está lista para funcionar como PWA.</p>
+
+  <!-- Script para registrar el Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registrado ✅', reg))
+          .catch(err => console.error('Error al registrar el Service Worker ❌', err));
+      });
+    }
+  </script>
+</body>
+</html>
